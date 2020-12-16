@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      /***********************************************
+        2.2.1
+        AJAX
+      ************************************************/
+      // axios.get('https://www.zerocho.com/api/get')
+      //   .then((result) => {
+      //     console.log(result);
+      //     console.log(result.data);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+
+      //   (async () => {
+      //     try{
+      //       const result = await axios.get('https://www.zerocho.com/api/get');
+      //       console.log(result);
+      //       console.log(result.data);
+      //     } catch(error) {
+      //       console.log(error);
+      //     }
+      //   })();
+
+      //   (async () => {
+      //     try{
+      //       const result = await axios.post('https://www.zerocho.com/api/post/json', {
+      //         name: 'zerocho',
+      //         birth: 1994,
+      //       });
+      //       console.log(result);
+      //       console.log(result.data);
+      //     } catch(error) {
+      //       console.log(error);
+      //     }
+      //   })();
+      
+      /***********************************************
+        2.2.2
+        FormData
+      ************************************************/
+
+      const formData = new FormData();
+      formData.append('name', 'zerocho');
+      formData.append('item', 'orange');
+      formData.append('item', 'melon');
+      formData.has('item');
+      formData.has('money');
+      formData.get('item');
+      formData.getAll('item');
+      formData.append('test', ['hi', 'zero']);
+      formData.get('test');
+      formData.delete('test');
+      formData.get('test');
+      formData.set('item', 'apple');
+      formData.getAll('item');
+
+      (async () => {
+        try{
+          const formData = new FormData();
+          formData.append('name', 'zerocho');
+          formData.append('birth', 1994);
+          const result = await axios.post('https://www.zerocho.com/api/post/formdata', formData);
+          console.log(result);
+          console.log(result.data);
+        } catch(error) {
+          console.log(error);
+        }
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
